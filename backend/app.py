@@ -1,10 +1,10 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import random
-import os  # Thêm dòng này
+import os
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "*"}})  # Cho phép tất cả domains
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 @app.route('/')
 def home():
@@ -29,5 +29,5 @@ def api_chia_doi():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))  # Railway sẽ cung cấp PORT
-    app.run(host='0.0.0.0', port=port)  # Chạy trên all interfaces
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
