@@ -1,0 +1,205 @@
+/* Reset và base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --text-color: #374151;
+    --text-light: #6b7280;
+    --bg-color: #ffffff;
+    --bg-light: #f8fafc;
+    --border-color: #e5e7eb;
+    --shadow: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-hover: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: var(--bg-light);
+    min-height: 100vh;
+}
+
+.app {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 40px 0 30px;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+}
+
+.slogan {
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+/* Search */
+.search-box {
+    max-width: 500px;
+    margin: 0 auto 40px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 25px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Main Content */
+.main {
+    flex: 1;
+    padding-bottom: 40px;
+}
+
+.category {
+    margin-bottom: 40px;
+}
+
+.category h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Tool Cards */
+.tool-card {
+    background: var(--bg-color);
+    padding: 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    position: relative;
+    display: block;
+}
+
+.tool-card:hover:not(.coming-soon) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--primary-color);
+}
+
+.tool-card.coming-soon {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.tool-icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+}
+
+.tool-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.tool-card p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.tool-tag {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.coming-soon .tool-tag {
+    background: var(--text-light);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 30px 0;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-light);
+}
+
+.footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .app {
+        padding: 0 15px;
+    }
+    
+    .header {
+        padding: 30px 0 20px;
+    }
+    
+    .logo {
+        font-size: 2rem;
+    }
+    
+    .tools-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .tool-card {
+        padding: 20px;
+    }
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
